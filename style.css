@@ -13,14 +13,18 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
 }
 .content {
-    padding: 80px 280px 0; /* 顶部留白避免被导航栏遮挡，左右各留280px空白 */
+    width: calc(100% - 48px);
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 100px 0 40px;
+    box-sizing: border-box;
 }
 
 .bio {
-
     text-align: left;
-    max-width: 800px; /* 正文最大宽度800px，阅读体验好 */
-    
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
 }
 .tab {
     padding: 8px 20px;
@@ -78,6 +82,44 @@ a:visited {
 }
 a:hover {
     text-decoration: underline;
+}
+
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0 36px;
+}
+
+.profile-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid #d7d7df;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.education-section {
+    margin-top: 36px;
+}
+
+.education-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px 0;
+    border-top: 1px solid #eee;
+}
+
+.education-item p {
+    margin: 4px 0 0;
+}
+
+.education-item span {
+    flex: 0 0 auto;
+    color: #666;
 }
 
 /* Publication 页面样式 */
@@ -146,3 +188,61 @@ a:hover {
     border: none;
 }
 
+@media (max-width: 760px) {
+    .tabs {
+        left: 0;
+        right: auto;
+        justify-content: flex-start;
+        gap: 4px;
+        padding: 10px 12px;
+        overflow-x: auto;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab {
+        flex: 0 0 auto;
+        min-height: 44px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .content {
+        width: calc(100% - 32px);
+        padding-top: 84px;
+    }
+
+    .about-container {
+        padding-top: 18px;
+    }
+
+    .bio h1 {
+        font-size: 1.7rem;
+        line-height: 1.25;
+    }
+
+    .education-item {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .cv-pdf-container {
+        height: 70vh;
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 420px) {
+    .content {
+        width: calc(100% - 24px);
+    }
+
+    .profile-links a {
+        flex: 1 1 140px;
+        justify-content: center;
+    }
+
+    .publication-item {
+        overflow-wrap: anywhere;
+    }
+}
