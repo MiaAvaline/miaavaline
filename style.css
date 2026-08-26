@@ -94,6 +94,7 @@ a:hover {
 .profile-links a {
     display: inline-flex;
     align-items: center;
+    gap: 9px;
     min-height: 40px;
     padding: 0 16px;
     border: 1px solid #d7d7df;
@@ -101,25 +102,68 @@ a:hover {
     font-weight: 600;
 }
 
+.profile-link-icon {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 .education-section {
-    margin-top: 36px;
+    margin-top: 42px;
+}
+
+.education-section > h2 {
+    margin-bottom: 20px;
+}
+
+.education-list {
+    display: grid;
+    gap: 0;
 }
 
 .education-item {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 18px 0;
-    border-top: 1px solid #eee;
+    position: relative;
+    padding: 24px 170px 24px 0;
+    border-top: 1px solid #e2e3e8;
+}
+
+.education-item:last-child {
+    border-bottom: 1px solid #e2e3e8;
+}
+
+.education-item h3 {
+    margin: 0 0 12px;
+    font-size: 1.08rem;
+    line-height: 1.4;
+    color: #242735;
 }
 
 .education-item p {
-    margin: 4px 0 0;
+    margin: 0;
 }
 
-.education-item span {
-    flex: 0 0 auto;
-    color: #666;
+.education-degree {
+    font-weight: 600;
+    color: #3f4350;
+}
+
+.education-program {
+    margin-top: 2px !important;
+    color: #666b78;
+}
+
+.education-date {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    color: #0069d9;
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 /* Publication 页面样式 */
@@ -152,40 +196,110 @@ a:hover {
 
 /* Projects 页面样式 */
 .project-item {
-    margin-bottom: 40px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #eee;
+    margin-bottom: 54px;
+    padding: 0;
 }
 
 .project-item:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .project-item h3 {
-    margin-top: 0;
+    margin: 0 0 12px;
+    font-size: 1.25rem;
     color: #333;
+}
+
+.project-image {
+    display: block;
+    width: min(100%, 540px);
+    height: 300px;
+    margin: 0 0 22px;
+    object-fit: cover;
+    object-position: center;
+    background: #f6f6f8;
+}
+
+.project-image-contain {
+    object-fit: contain;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.project-tags span {
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: #eef6ff;
+    color: #0069d9;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-summary {
+    margin: 0;
+    color: #464b57;
+}
+
+.project-description {
+    margin: 14px 0 0;
+    color: #555a65;
+}
+
+.project-paper-link {
+    color: #242735;
+    text-decoration: underline;
+    text-decoration-color: #9fc9f5;
+    text-underline-offset: 4px;
+}
+
+.project-paper-link::after {
+    content: " ↗";
+    color: #0069d9;
+    font-size: 0.85em;
 }
 
 /* CV 页面样式 */
 .cv-download-section {
-    margin-bottom: 20px;
+    margin: 20px 0 30px;
 }
 
-.cv-pdf-container {
-    width: 100%;
-    max-width: 1200px;
-    height: 1600px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.cv-download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    color: #0069d9;
+    font-weight: 600;
 }
 
-.cv-pdf-viewer {
+.cv-download-icon {
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cv-pages {
+    display: grid;
+    gap: 28px;
     width: 100%;
-    height: 100%;
-    border: none;
+    background: transparent;
+}
+
+.cv-page {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    background: #fff;
 }
 
 @media (max-width: 760px) {
@@ -222,14 +336,23 @@ a:hover {
     }
 
     .education-item {
-        flex-direction: column;
-        gap: 6px;
+        padding: 22px 0;
     }
 
-    .cv-pdf-container {
-        height: 70vh;
-        min-height: 520px;
+    .education-date {
+        position: static;
+        display: inline-block;
+        margin-bottom: 14px;
     }
+
+    .cv-pages {
+        gap: 18px;
+    }
+
+    .project-image {
+        height: 220px;
+    }
+
 }
 
 @media (max-width: 420px) {
